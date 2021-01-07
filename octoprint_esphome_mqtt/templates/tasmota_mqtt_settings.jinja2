@@ -1,13 +1,13 @@
-<h4>Tasmota-MQTT Settings</h4>
+<h4>ESPHome-MQTT Settings</h4>
 <table class="table table-condensed">
 	<thead>
 		<tr>
-			<td style="text-align:center">Topic | Relay #</td>
+			<td style="text-align:center">Topic | Relay name</td>
 			<td style="text-align:center">Options</td>
 			<td style="text-align:center"><div class="btn-group"><a href="#" class="btn btn-mini icon-plus" data-bind="click: addRelay"></a></div></td>
 		</tr>
 	</thead>
-	<tbody data-bind="sortable: { data: settingsViewModel.settings.plugins.tasmota_mqtt.arrRelays, options: { cancel: '.unsortable', handle: '.moveRelay', axis:'y'} }">
+	<tbody data-bind="sortable: { data: settingsViewModel.settings.plugins.esphome_mqtt.arrRelays, options: { cancel: '.unsortable', handle: '.moveRelay', axis:'y'} }">
 		<tr data-bind='attr: {title: (topic()+"|"+relayN())}'>
 			<td><!--ko text: topic--><!--/ko--> | <!--ko text: relayN--><!--/ko--></td>
 			<td style="text-align:center">
@@ -35,13 +35,13 @@
 	<div class="control-group">
 		<div class="controls">
 			<label class="control-label">Full Topic</label>
-			<input type="text" class="input-block-level" data-bind="value: settingsViewModel.settings.plugins.tasmota_mqtt.full_topic_pattern" />
+			<input type="text" class="input-block-level" data-bind="value: settingsViewModel.settings.plugins.esphome_mqtt.full_topic_pattern" />
 		</div>
 	</div>
 	<div class="control-group">
 		<div class="controls">
 			<label class="checkbox">
-			<input type="checkbox" title="Automatically power off all plugs with the option Off on Idle enabled after configured idle timeout, target tempoerature is reached, and timelapse is completed." data-bind="checked: settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle" />Power Off on Idle
+			<input type="checkbox" title="Automatically power off all plugs with the option Off on Idle enabled after configured idle timeout, target tempoerature is reached, and timelapse is completed." data-bind="checked: settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle" />Power Off on Idle
 			</label>
 		</div>
 	</div>
@@ -49,7 +49,7 @@
 		<label class="control-label">Abort Power Off Timeout</label>
 		<div class="controls">
 			<div class="input-append" title="Pop up will be displayed for this amount of time to allow for cancelling power off of plugs.">
-				<input type="number" class="input-mini text-right" data-bind="value: settingsViewModel.settings.plugins.tasmota_mqtt.abortTimeout, enable: settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle()" disabled />
+				<input type="number" class="input-mini text-right" data-bind="value: settingsViewModel.settings.plugins.esphome_mqtt.abortTimeout, enable: settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle()" disabled />
 				<span class="add-on">secs</span>
 			</div>
 		</div>
@@ -58,7 +58,7 @@
 		<label class="control-label">Idle Timeout</label>
 		<div class="controls">
 			<div class="input-append" title="Amount of time that will lapse before printer is considered idle and plugs will be powered off.">
-				<input type="number" class="input-mini text-right" data-bind="value: settingsViewModel.settings.plugins.tasmota_mqtt.idleTimeout, enable: settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle() && settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle()" disabled />
+				<input type="number" class="input-mini text-right" data-bind="value: settingsViewModel.settings.plugins.esphome_mqtt.idleTimeout, enable: settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle() && settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle()" disabled />
 				<span class="add-on">mins</span>
 			</div>
 		</div>
@@ -67,7 +67,7 @@
 		<label class="control-label">Idle Target Temperature</label>
 		<div class="controls">
 			<div class="input-append" title="Power off will be delayed untill all heaters reach this temperature.">
-				<input type="number" class="input-mini text-right" data-bind="value: settingsViewModel.settings.plugins.tasmota_mqtt.idleTimeoutWaitTemp, enable: settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle() && settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle()" disabled />
+				<input type="number" class="input-mini text-right" data-bind="value: settingsViewModel.settings.plugins.esphome_mqtt.idleTimeoutWaitTemp, enable: settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle() && settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle()" disabled />
 				<span class="add-on">degs</span>
 			</div>
 		</div>
@@ -75,28 +75,28 @@
 	<div class="control-group">
 		<label class="control-label">GCode Commands to Ignore for Idle</label>
 		<div class="controls" title="Comma separated list of gcode commands to ignore for determining printer idle state.">
-			<input type="text" class="input-block-level" data-bind="value: settingsViewModel.settings.plugins.tasmota_mqtt.idleIgnoreCommands, enable: settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle() && settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle()" disabled />
+			<input type="text" class="input-block-level" data-bind="value: settingsViewModel.settings.plugins.esphome_mqtt.idleIgnoreCommands, enable: settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle() && settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle()" disabled />
 		</div>
 	</div>
 	<div class="control-group">
 		<div class="controls">
 			<label class="checkbox">
-			<input type="checkbox" title="Enable custom debug logging for troupleshooting." data-bind="checked: settingsViewModel.settings.plugins.tasmota_mqtt.debug_logging" />Debug Logging
+			<input type="checkbox" title="Enable custom debug logging for troupleshooting." data-bind="checked: settingsViewModel.settings.plugins.esphome_mqtt.debug_logging" />Debug Logging
 			</label>
 		</div>
 	</div>
 </div>
 
-<div id="TasmotaMQTTRelayEditor" data-bind="with: selectedRelay" class="modal hide fade">
+<div id="ESPHomeMQTTRelayEditor" data-bind="with: selectedRelay" class="modal hide fade">
 	<div class="modal-header">
 		<a href="#" class="close" data-dismiss="modal" aria-hidden="true">&times;</a>
-		<h3>Tasmota-MQTT Relay Editor</h3>
+		<h3>ESPHome-MQTT Relay Editor</h3>
 	</div>
 	<div class="modal-body">
 		<table class="table table-condensed">
 			<tr>
 				<td><div class="controls"><label class="control-label">Topic</label><input type="text" class="input-block-level" data-bind="value: topic" /><div></td>
-				<td><div class="controls"><label class="control-label">Relay #</label><input type="text" class="input input-small" data-bind="value: relayN" /></div></td>
+				<td><div class="controls"><label class="control-label">Relay name</label><input type="text" class="input input-small" data-bind="value: relayN" /></div></td>
 				<td><div class="controls"><label class="control-label">Icon Class</label><input type="text" class="input-block-level" data-bind="value: icon, iconpicker: icon,iconpickerOptions: {hideOnSelect: true, collision: true}" /><div></td>
 			</tr>
 			<tr>
@@ -105,7 +105,7 @@
 				<td></td>
 			</tr>
 			<tr>
-				<td><div class="controls"><label class="checkbox"><input type="checkbox" data-bind="checked: automaticShutdownEnabled, enable: $root.settingsViewModel.settings.plugins.tasmota_mqtt.powerOffWhenIdle()" disabled /> Off on Idle</label></div></td>
+				<td><div class="controls"><label class="checkbox"><input type="checkbox" data-bind="checked: automaticShutdownEnabled, enable: $root.settingsViewModel.settings.plugins.esphome_mqtt.powerOffWhenIdle()" disabled /> Off on Idle</label></div></td>
 				<td><div class="controls"><label class="checkbox"><input type="checkbox" data-bind="checked: warn"/> Warning Prompt</label></div></td>
 				<td><div class="controls"><label class="checkbox"><input type="checkbox" data-bind="checked: warnPrinting"/> Warn While Printing</label></div></td>
 			</tr>

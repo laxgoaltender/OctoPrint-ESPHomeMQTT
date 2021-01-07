@@ -1,40 +1,40 @@
 ---
 layout: plugin
 
-id: tasmota_mqtt
-title: OctoPrint-TasmotaMQTT
-description: Plugin to control Tasmota devices via MQTT protocol.
+id: esphome_mqtt
+title: OctoPrint-ESPHomeMQTT
+description: Plugin to control ESPHome devices via MQTT protocol.
 author: jneilliii
 license: AGPLv3
 
 date: 2018-01-04
 
-homepage: https://github.com/jneilliii/OctoPrint-TasmotaMQTT
-source: https://github.com/jneilliii/OctoPrint-TasmotaMQTT
-archive: https://github.com/jneilliii/OctoPrint-TasmotaMQTT/archive/master.zip
+homepage: https://github.com/jneilliii/OctoPrint-ESPHomeMQTT
+source: https://github.com/jneilliii/OctoPrint-ESPHomeMQTT
+archive: https://github.com/jneilliii/OctoPrint-ESPHomeMQTT/archive/master.zip
 
 follow_dependency_links: false
 
 tags:
-- tasmota
+- esphome
 - mqtt
 - power
 
 screenshots:
-- url: /assets/img/plugins/tasmota-mqtt/navbar.png
+- url: /assets/img/plugins/esphome-mqtt/navbar.png
   alt: Navbar
   caption: Buttons on navigation bar
-- url: /assets/img/plugins/tasmota-mqtt/settings.png
+- url: /assets/img/plugins/esphome-mqtt/settings.png
   alt: Settings
-  caption: Tasmota-MQTT Settings
-- url: /assets/img/plugins/tasmota-mqtt/relay_editor.png
+  caption: ESPHome-MQTT Settings
+- url: /assets/img/plugins/esphome-mqtt/relay_editor.png
   alt: Relay Editor
-  caption: Tasmota-MQTT Relay Editor
+  caption: ESPHome-MQTT Relay Editor
 
-featuredimage: /assets/img/plugins/tasmota-mqtt/navbar.png
+featuredimage: /assets/img/plugins/esphome-mqtt/navbar.png
 ---
 
-This plugin allows the control of [Tasmota](https://github.com/arendst/Sonoff-Tasmota) devices from within OctoPrint via [MQTT](https://github.com/arendst/Sonoff-Tasmota/wiki/MQTT-Overview#mqtt-overview) commands.
+This plugin allows the control of [ESPHome](https://github.com/arendst/Sonoff-ESPHome) devices from within OctoPrint via [MQTT](https://github.com/arendst/Sonoff-ESPHome/wiki/MQTT-Overview#mqtt-overview) commands.
 
 ## Prerequisites
 
@@ -46,11 +46,11 @@ Install the [MQTT](https://github.com/OctoPrint/OctoPrint-MQTT) plugin via the P
 
 Install via the Plugin Manager or manually using this URL:
 
-    https://github.com/jneilliii/OctoPrint-TasmotaMQTT/archive/master.zip
+    https://github.com/jneilliii/OctoPrint-ESPHomeMQTT/archive/master.zip
 
 ## Configuration
 
-- Once installed your Tasmota devices will need to have the FullTopic configured as **%topic%/%prefix%/**
-- Use the Tasmota device's topic in the Tasmota-MQTT Plugin settings for the individual relays.
+- Once installed your ESPHome devices will need to have the FullTopic configured as **%topic%/%prefix%/**
+- Use the ESPHome device's topic in the ESPHome-MQTT Plugin settings for the individual relays.
 - For multiple relay devices enter the index number that matches your desired relay.
 - For single relay devices like the [iTead Sonoff S20 Smart Socket](https://www.itead.cc/smart-socket.html), leave Relay # blank.

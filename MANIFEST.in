@@ -1,4 +1,4 @@
 include README.md
-recursive-include octoprint_tasmota-mqtt/templates *
-recursive-include octoprint_tasmota-mqtt/translations *
-recursive-include octoprint_tasmota-mqtt/static *
+recursive-include octoprint_esphome-mqtt/templates *
+recursive-include octoprint_esphome-mqtt/translations *
+recursive-include octoprint_esphome-mqtt/static *
